@@ -6,9 +6,9 @@ describe('Orders', function() {
     expect(testOrder.drinks).to.eql([]);        
     expect(testOrder.deliveryType).to.equal("To go");
   });
-  // it("adds the fullMovie method to all movies", function() {
-  //    var testOrder = new Order("To go");
-  //   expect(testOrder.orderTotal()).to.equal("$20");
-  // });
+  it("adds the Order total method to Order", function() {
+    var testOrder = new Order("To go");
+    expect(testOrder.orderTotal()).to.equal(20);
+  });
 
 });
