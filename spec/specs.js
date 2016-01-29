@@ -10,5 +10,11 @@ describe('Orders', function() {
     var testOrder = new Order("To go");
     expect(testOrder.orderTotal()).to.equal(20);
   });
-
+});
+describe('Pizza', function() {
+  it("creates a new pizza with given properties", function() {
+    var testPizza = new Pizza("Large");
+    expect(testPizza.pizzaSize).to.equal("Large")
+    expect(testPizza.toppings).to.eql([]);
+  });
 });
