@@ -14,12 +14,12 @@ describe('Orders', function() {
 describe('Pizza', function() {
   it("creates a new pizza with given properties", function() {
     var testPizza = new Pizza("large");
-    expect(testPizza.pizzaSize).to.equal("large")
+    expect(testPizza.size).to.equal("large")
     expect(testPizza.toppings).to.eql([]);
   });
   it("adds the pizza total method to Pizza", function() {
     var testPizza = new Pizza("Large");
-    expect(testPizza.pizzaTotal()).to.equal(0);
+    expect(testPizza.pizzaTotal()).to.equal(5);
   });
 });
 describe('Drink', function() {
