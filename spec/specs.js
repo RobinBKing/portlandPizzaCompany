@@ -17,7 +17,7 @@ describe('Pizza', function() {
     expect(testPizza.pizzaSize).to.equal("large")
     expect(testPizza.toppings).to.eql([]);
   });
-  it("adds the pizza total method to Order", function() {
+  it("adds the pizza total method to Pizza", function() {
     var testPizza = new Pizza("Large");
     expect(testPizza.pizzaTotal()).to.equal(0);
   });
@@ -28,8 +28,8 @@ describe('Drink', function() {
     expect(testDrink.name).to.equal("Root Beer");
     expect(testDrink.size).to.equal("medium");
   });
-  // it("adds the pizza total method to Order", function() {
-  //   var testPizza = new Pizza("Large");
-  //   expect(testPizza.pizzaTotal()).to.equal(0);
-  // });
+  it("adds the Drink total method to Drink", function() {
+    var testDrink = new Drink("Root Beer", "medium");
+    expect(testDrink.drinkTotal()).to.equal(0);
+  });
 });
