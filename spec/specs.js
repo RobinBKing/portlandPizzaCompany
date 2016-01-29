@@ -2,8 +2,8 @@
 describe('Orders', function() {
   it("creates a new order with given properties", function() {
     var testOrder = new Order("To go");
-    expect(testOrder.pizzas).to.eql([]);  
-    expect(testOrder.drinks).to.eql([]);        
+    expect(testOrder.pizzas).to.eql([]);
+    expect(testOrder.drinks).to.eql([]);
     expect(testOrder.deliveryType).to.equal("To go");
   });
   it("adds the Order total method to Order", function() {
@@ -13,8 +13,8 @@ describe('Orders', function() {
 });
 describe('Pizza', function() {
   it("creates a new pizza with given properties", function() {
-    var testPizza = new Pizza("large");
-    expect(testPizza.size).to.equal("large")
+    var testPizza = new Pizza("Large");
+    expect(testPizza.size).to.equal("Large")
     expect(testPizza.toppings).to.eql([]);
   });
   it("adds the pizza total method to Pizza", function() {
@@ -24,12 +24,12 @@ describe('Pizza', function() {
 });
 describe('Drink', function() {
   it("creates a new Drink with given properties", function() {
-    var testDrink = new Drink("Root Beer", "medium");
+    var testDrink = new Drink("Root Beer", "Medium");
     expect(testDrink.name).to.equal("Root Beer");
-    expect(testDrink.size).to.equal("medium");
+    expect(testDrink.size).to.equal("Medium");
   });
   it("adds the Drink total method to Drink", function() {
-    var testDrink = new Drink("Root Beer", "medium");
+    var testDrink = new Drink("Root Beer", "Medium");
     expect(testDrink.drinkTotal()).to.equal(0);
   });
 });

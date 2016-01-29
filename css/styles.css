@@ -1,12 +1,14 @@
 #orderTotal {
   display: none;
 }
-/*jumbotron*/
+
 .jumbotron {
   background-color: lightslategrey;
-  }
 }
 
 .jumbotron-fluid {
   padding: 0;
+}
+.sizeSelect{
+  width: 150px;
 }

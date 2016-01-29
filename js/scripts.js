@@ -24,15 +24,15 @@ Pizza.prototype.pizzaTotal = function() {
   var basePrice = 5.00;
   var toppingPrice = 1.00;
   switch(this.size) {
-    case "small":
+    case "Small":
       break;
-    case "medium":
+    case "Medium":
       toppingPrice = toppingPrice * 2;
       break;
-    case "large":
+    case "Large":
       toppingPrice = toppingPrice * 3;
       break;
-    case "Xlarge":
+    case "XLSarge":
       toppingPrice = toppingPrice * 4;
       break;
     default:
@@ -47,13 +47,13 @@ function Drink(name, size){
 Drink.prototype.drinkTotal = function() {
   var price = 0;
   switch(this.drinkSize) {
-    case "small":
+    case "Small":
         price = .75;
         break;
-    case "medium":
+    case "Medium":
         price = 1.00;
         break;        break;
-    case "large":
+    case "Large":
          price = 1.25;
         break;
     default:
@@ -63,5 +63,24 @@ Drink.prototype.drinkTotal = function() {
    return price;
 };
 //interface
-// $(document).ready(function() {
-// });
+$(document).ready(function() {
+  var newToppings = ["Pepperoni","Sausage","Beef","Chicken","Onions","Green Peppers","Black Olives","Mushrooms","Tomatos","Garlic","Peppers","Extra Cheese"];
+
+  $("#toppingsCheck").empty;
+  for(var i=0; i < newToppings.length; i++){
+    $("#toppingsCheck").append("<div class='form-group;>" +
+                                 "<div class='checkbox'>" +
+                                   "<label><input type='checkbox' value='" + newToppings[i] + "'> " + newToppings[i] + "</label>" +
+                                 "</div>" +
+                               "</div>");
+  };
+
+  var newDrinks = ["Select a drink", "Cola", "Lemon Lime", "Root Beer", "Lemonade", "Fruit Punch", "Milk"];
+  $("#drinksSelect").empty;
+  for(var i=0; i < newDrinks.length; i++){
+    $("#drinkSelect").append("<option>" + newDrinks[i] + "</option>");
+  };
+  $("form#pizzaForm").submit(function(event) {
+    event.preventDefault();
+  });
+});
