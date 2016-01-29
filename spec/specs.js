@@ -8,17 +8,28 @@ describe('Orders', function() {
   });
   it("adds the Order total method to Order", function() {
     var testOrder = new Order("To go");
-    expect(testOrder.orderTotal()).to.equal(20);
+    expect(testOrder.orderTotal()).to.equal(0);
   });
 });
 describe('Pizza', function() {
   it("creates a new pizza with given properties", function() {
-    var testPizza = new Pizza("Large");
-    expect(testPizza.pizzaSize).to.equal("Large")
+    var testPizza = new Pizza("large");
+    expect(testPizza.pizzaSize).to.equal("large")
     expect(testPizza.toppings).to.eql([]);
   });
   it("adds the pizza total method to Order", function() {
     var testPizza = new Pizza("Large");
-    expect(testPizza.pizzaTotal()).to.equal(10);
+    expect(testPizza.pizzaTotal()).to.equal(0);
   });
+});
+describe('Drink', function() {
+  it("creates a new Drink with given properties", function() {
+    var testDrink = new Drink("Root Beer", "medium");
+    expect(testDrink.name).to.equal("Root Beer");
+    expect(testDrink.size).to.equal("medium");
+  });
+  // it("adds the pizza total method to Order", function() {
+  //   var testPizza = new Pizza("Large");
+  //   expect(testPizza.pizzaTotal()).to.equal(0);
+  // });
 });
