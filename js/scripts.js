@@ -9,14 +9,16 @@ Order.prototype.orderTotal = function() {
   for (var i = 0; i < this.pizzas.length; i++){
     var pizza = this.pizzas[i];
     orderTotal = (orderTotal + pizza.price);
-  }
-  
+  };
   for (var i = 0; i < this.drinks.length; i++){
     var drink = this.drings[i];
     orderTotal = (orderTotal + drink.price);
-  }
-
+  };
   return orderTotal;
+};
+function Pizza(pizzaSize){
+  this.pizzaSize = pizzaSize;
+  this.toppings = [];
 };
 //interface
 // $(document).ready(function() {

@@ -17,4 +17,8 @@ describe('Pizza', function() {
     expect(testPizza.pizzaSize).to.equal("Large")
     expect(testPizza.toppings).to.eql([]);
   });
+  // it("adds the pizza total method to Order", function() {
+  //   var testPizza = new Pizza("Large");
+  //   expect(testPizza.pizzaTotal()).to.equal(10);
+  // });
 });
