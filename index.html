@@ -25,19 +25,19 @@
       <form id="pizzaForm">
         <div class="row">
           <div class="col-sm-6">
-            <h2>Pizzas</h2>
+            <h2>Pizza</h2>
             <div class="toggleExpand">
               <div class="form-group">
-                <!-- <label for="pizzaSizeSelect">Size:</label> -->
+                <label for="pizzaSizeSelect">Size:</label>
                 <select class="form-control sizeSelect" id="pizzaSizeSelect">
-                  <option>Select a size</option>
+                  <option></option>
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                   <option>XLarge</option>
                 </select>
               </div>
-              <h4>Select Your Toppings</h4>
+              <label for="toppingsCheck">Toppings</label>
               <div id="toppingsCheck">
               </div>
             </div>
@@ -45,23 +45,31 @@
           <div class="col-sm-6">
             <h2>Drinks</h2>
             <div class="toggleExpand">
-              <form id="drinkForm">
                 <div class="form-group">
-                  <!-- <label for="drinkSizeSelect">Size:</label> -->
+                  <label for="drinkSelect">Select a Drink:</label>
+                  <select class="form-control" id="drinkSelect">
+                  </select>
+                  <label for="drinkSizeSelect">Size:</label>
                   <select class="form-control sizeSelect" id="drinkSizeSelect">
-                    <option>Select a size</option>
+                    <option></option>
                     <option>Small</option>
                     <option>Medium</option>
                     <option>Large</option>
                   </select>
-                  <div id="drinksSelect">
-
-                  </div>
-                  <select class="form-control" id="drinkSelect">
-                  </select>
                 </div>
-                <button type="submit" class="btn">Add to Order</button>
-              </form>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn" id="addToButton">Add to Order</button>
+      </form>
+      <form id="orderForm">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="showOrder">
+              <h3>Your Order</h3>
+              <ul id="orderList">
+              </ul>
+              <p>Order Total: <span id="orderTotal"></span></p>
             </div>
           </div>
         </div>

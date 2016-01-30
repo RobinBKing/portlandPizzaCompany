@@ -1,5 +1,8 @@
-#orderTotal {
+#showOrder {
   display: none;
+}
+#orderList{
+  list-style: none;
 }
 
 .jumbotron {
