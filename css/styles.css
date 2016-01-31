@@ -4,9 +4,17 @@
 #orderList{
   list-style: none;
 }
+body {
+  color: white;
+  background-image: url("../img/BrickOven1.jpg");
+  background-size: cover;
+  font-family: "Times New Roman";
+}
 
 .jumbotron {
   background-color: lightslategrey;
+  background-image: url("../img/oldBrickWall.jpg");
+  background-size: cover;
 }
 
 .jumbotron-fluid {
