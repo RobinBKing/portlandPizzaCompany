@@ -128,5 +128,6 @@ $(document).ready(function() {
     };
     $("#orderTotal").text("$" + newOrder.orderTotal().toFixed(2));
     $("#showOrder").show();
+    $('#pizzaForm').trigger("reset");
   });
 });
