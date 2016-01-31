@@ -41,14 +41,16 @@ Pizza.prototype.pizzaTotal = function() {
   return parseFloat((this.toppings.length * toppingPrice) + basePrice);
 };
 Pizza.prototype.fullPizza = function() {
-  var allToppings;
   if (this.toppings.length > 0) {
-    allToppings = this.size + " " + this.toppings[0];
+    var allToppings = this.size + " " + this.toppings[0];
     for (var i = 1; i < this.toppings.length; i++){
       allToppings = allToppings + ", " +  this.toppings[i];
-    };allToppings += " pizza $" + this.pizzaTotal().toFixed(2);
+    };
+    return allToppings.replace(/_/g," ") + " pizza $" + this.pizzaTotal().toFixed(2);
+  }
+  else {
+    return "";
   };
-  return allToppings;
 }
 function Drink(name, size){
   this.name = name;
@@ -76,31 +78,30 @@ Drink.prototype.fullDrink = function() {
 };
 //interface
 $(document).ready(function() {
-  var newToppings = ["Pepperoni","Sausage","Beef","Chicken","Onions","Green Peppers","Black Olives","Mushrooms","Tomatos","Garlic","Peppers","Extra Cheese"];
-
+  var listToppings = ["Pepperoni","Sausage","Beef","Chicken","Onions","Green_Peppers","Black_Olives","Mushrooms","Tomatos","Garlic","Jalapenos","Extra_Cheese"];
   $("#toppingsCheck").empty();
-  for(var i=0; i < newToppings.length; i++){
+  for(var i=0; i < listToppings.length; i++){
     $("#toppingsCheck").append("<div class='form-group;>" +
                                  "<div class='checkbox'>" +
-                                   "<label><input type='checkbox' value='" + newToppings[i] + "'> " + newToppings[i] + "</label>" +
+                                   "<label><input type='checkbox' id='" + listToppings[i] + "'> " + listToppings[i].replace(/_/g," ") + "</label>" +
                                  "</div>" +
                                "</div>");
   };
-  var newDrinks = ["Cola", "Lemon Lime", "Root Beer", "Lemonade", "Fruit Punch", "Milk"];
+  var listDrinks = ["Cola", "Lemon Lime", "Root Beer", "Lemonade", "Fruit Punch", "Milk"];
   $("#drinksSelect").empty();
   $("#drinkSelect").append("<option></option>");
-  for(var i=0; i < newDrinks.length; i++){
-    $("#drinkSelect").append("<option>" + newDrinks[i] + "</option>");
+  for(var i=0; i < listDrinks.length; i++){
+    $("#drinkSelect").append("<option>" + listDrinks[i] + "</option>");
   };
   var newOrder = new Order("To go");
   $("form#pizzaForm").submit(function(event) {
     event.preventDefault();
     var newPizzaSize = $("select#pizzaSizeSelect").val();
     newPizza = new Pizza(newPizzaSize);
-    for(var i=0; i < newToppings.length; i++){
-      var checkboxCheck = "input#" + newToppings[i];
-      if($(checkboxCheck).prop('checked')){
-        newPizza.push(newToppings[i]);
+    for(var i=0; i < listToppings.length; i++){
+      var checkboxCheck = "input#" + listToppings[i];
+      if($(checkboxCheck).prop('checked') === true){
+        newPizza.toppings.push(listToppings[i]);
       };
     };
     var newDrinkSizeSelect = $("select#drinkSizeSelect").val();
@@ -108,22 +109,21 @@ $(document).ready(function() {
     var newDrink = new Drink(newDrinkselect, newDrinkSizeSelect);
     if(newPizza.size){
       newOrder.pizzas.push(newPizza);
-      console.log(newOrder.pizzas.length);
     };
     if(newDrink.name){
       newOrder.drinks.push(newDrink);
-      console.log(newOrder.drinks.length);
     };
     $("ul#orderList").empty();
     for(var i = 0; i < newOrder.pizzas.length; i++){
-      var orderedPizza = newOrder.pizzas[i];
-      $("ul#orderList").append("<li><span class='pizzaOrderdlist'>" + orderedPizza.fullPizza() +"</span></li>");
+      var newOrderPizza = newOrder.pizzas[i];
+        if(newOrderPizza.pizzaTotal() > 0){
+          $("ul#orderList").append("<li>" + newOrderPizza.fullPizza() +"</li>");
+        };
     };
     for(var i=0; i<newOrder.drinks.length; i++){
-      var orderedDrinks = newOrder.drinks[i];
-      if(orderedDrinks.drinkTotal() > 0){
-        var fullDrinks = orderedDrinks.size + " " + orderedDrinks.name  + " " + orderedDrinks.drinkTotal();
-        $("ul#orderList").append("<li><span class='drinksOrderdlist'>" + fullDrinks + "</span></li>");
+      var newOrderDrink = newOrder.drinks[i];
+      if(newOrderDrink.drinkTotal() > 0){
+        $("ul#orderList").append("<li>" + newOrderDrink.fullDrink() + "</li>");
       };
     };
     $("#orderTotal").text("$" + newOrder.orderTotal().toFixed(2));
