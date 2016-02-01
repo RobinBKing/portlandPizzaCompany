@@ -1,25 +1,37 @@
 #showOrder {
   display: none;
 }
+
 #orderList{
   list-style: none;
 }
+
 body {
-  color: white;
+  color: orange;
   background-image: url("../img/BrickOven1.jpg");
   background-size: cover;
   font-family: "Times New Roman";
 }
 
+@font-face {
+    font-family: paint;
+    src: url("../font/paintypaint/PAINP___.ttf");
+    /*src: url("../font/protestpaint-bb/ProtestPaintBB_ital.ttf");*/
+    /*src: url("../font/vtks-downtown/VTKS DOWNTOWN.ttf");*/
+  }
+
 .jumbotron {
   background-color: lightslategrey;
   background-image: url("../img/oldBrickWall.jpg");
   background-size: cover;
+  font-family: "paint";
+  color: white;
 }
 
 .jumbotron-fluid {
   padding: 0;
 }
+
 .sizeSelect{
   width: 150px;
 }
