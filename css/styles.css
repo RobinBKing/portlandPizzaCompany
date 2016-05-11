@@ -8,9 +8,12 @@
 
 body {
   color: orange;
-  background-image: url("../img/BrickOven1.jpg");
-  background-size: cover;
   font-family: "Times New Roman";
+  text-shadow: 2px 2px black;
+  background-color: black;
+  background-image: url("../img/BrickOven1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @font-face {
