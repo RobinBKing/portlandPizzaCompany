@@ -6,9 +6,14 @@
   list-style: none;
 }
 
+@font-face {
+    font-family: "paint";
+    src: url("PAINP___.ttf");
+  }
+
 body {
   color: orange;
-  font-family: "Times New Roman";
+  font-family: "Times New Roman, paint";
   text-shadow: 2px 2px black;
   background-color: black;
   background-image: url("../img/BrickOven1.jpg");
@@ -16,18 +21,11 @@ body {
   background-size: cover;
 }
 
-@font-face {
-    font-family: paint;
-    src: url("PAINP___.ttf");
-    /*src: url("../font/protestpaint-bb/ProtestPaintBB_ital.ttf");*/
-    /*src: url("../font/vtks-downtown/VTKS DOWNTOWN.ttf");*/
-  }
-
 .jumbotron {
   background-color: lightslategrey;
   background-image: url("../img/oldBrickWall.jpg");
   background-size: cover;
-  font-family: "Finger Paint";
+  font-family: "paint";
   color: white;
 }
 
@@ -37,4 +35,8 @@ body {
 
 .sizeSelect{
   width: 150px;
+}
+
+#pizzaForm {
+  font-family: "Times New Roman"
 }
